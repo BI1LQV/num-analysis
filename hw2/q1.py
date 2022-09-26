@@ -1,21 +1,6 @@
 from copy import deepcopy
 from functools import reduce
 
-A1 = [
-    [10, -7, 0],
-    [-3, 2, 6],
-    [5, -1, 5]
-]
-
-A2 = [
-    [10, -7, 0],
-    [10, -7, 0],
-    [5, -1, 5]
-]
-
-
-b = [7, 4, 6]
-
 
 def GaussSolve(iA, ib):
     A = deepcopy(iA)
@@ -48,6 +33,22 @@ def assess(A, b):
             zip(range(1, len(res)+1), res), ""
         )
     return "无唯一解"
+
+
+A1 = [
+    [10, -7, 0],
+    [-3, 2, 6],
+    [5, -1, 5]
+]
+
+A2 = [
+    [10, -7, 0],
+    [10, -7, 0],
+    [5, -1, 5]
+]
+
+
+b = [7, 4, 6]
 
 
 print("对于A1:", assess(A1, b))
