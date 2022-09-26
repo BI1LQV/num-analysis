@@ -24,12 +24,26 @@ def LUFactorization(iA):
     return L, U
 
 
-A = [
+def assess(A):
+    res = LUFactorization(A)
+    if res:
+        return f"L={res[0]}\nU={res[1]}"
+    return "无唯一LU分解"
+
+
+A1 = [
     [1, 2, 2],
     [4, 4, 2],
     [4, 6, 4]
 ]
 
-L, U = LUFactorization(A)
-print("L:", L)
-print("U:", U)
+
+A2 = [
+    [1, 2, 2],
+    [1, 2, 2],
+    [4, 6, 4]
+]
+
+
+print("对于A1:", assess(A1))
+print("对于A2:", assess(A2))
