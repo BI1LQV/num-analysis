@@ -29,7 +29,7 @@ def GaussSolve(iA, ib):
             if i == k:
                 continue
             c = A[i][k]/A[k][k]
-            for j in range(k, n):
+            for j in range(k+1, n):
                 A[i][j] = A[i][j]-c*A[k][j]
             b[i] = b[i]-c*b[k]
 
