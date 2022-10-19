@@ -1,7 +1,12 @@
 from copy import deepcopy
 from functools import reduce
 from math import inf
-from numpy import array, ndarray, zeros
+from numpy import array, ndarray, zeros, max, abs
+from numpy.linalg import eigvals
+
+
+def isIterable(x):
+    return max(abs(eigvals(x))) < 1
 
 
 def calc(x, A, b, withCopy):
@@ -19,9 +24,12 @@ def calc(x, A, b, withCopy):
 
 def solver(A, b, e, isJacobi, x=None, delta=inf, iterTimes=0):
     if not (type(x) is ndarray):
-        x = zeros(len(A))
+        x = zeros(len(A))  # 初始化x
+    if not isIterable(x):  # 不收敛
+        return False
     if delta < e:
-        return x, iterTimes
+        return x, iterTimes  # 判停
+
     nextX = calc(x, A, b, isJacobi)
     delta = reduce(
         lambda sum, i: sum + (nextX[i]-x[i])**2,
