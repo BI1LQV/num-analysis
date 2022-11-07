@@ -13,7 +13,7 @@ class Interpolation:
             cnTmp[i][0] = yn[i]
             for j in range(i):
                 cnTmp[i][j+1] = (cnTmp[i][j]-cnTmp[i-1][j])/(xn[i]-xn[i-j-1])
-        self.cn = list(map(lambda i: cnTmp[i][i], range(len(cnTmp))))
+        self.cn = list(map(lambda i: cnTmp[i][i], range(len(cnTmp))))  # 差商表对角线
 
     def lagrange(self, x):
         yt = 0
@@ -38,5 +38,5 @@ x = [1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5]
 y = [0.22713, 3.5151, 8.3228, 14.1950, 20.6704, 27.2814, 33.5544, 39.0096]
 
 interpolator = Interpolation(x, y)
-print(interpolator.lagrange(2.4))
-print(interpolator.newton(2.4))
+print(interpolator.lagrange(3.2))
+print(interpolator.newton(3.2))

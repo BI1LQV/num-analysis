@@ -1,6 +1,6 @@
 from cmath import e
 import sys
-sys.setrecursionlimit(10000)
+sys.setrecursionlimit(10000)  # 递归深度超限了，加大一点
 
 
 def acc(t):
@@ -18,6 +18,6 @@ def access(h):
     return abs(euler(0, 1, 1, h)-acc(1))/acc(1)
 
 
-print(access(0.1))
-print(access(0.01))
-print(access(0.001))
+print("h=0.1,相对误差", access(0.1))
+print("h=0.01,相对误差", access(0.01))
+print("h=0.001,相对误差", access(0.001))
